@@ -13,6 +13,8 @@
 <label>USERNAME:</label>
 <input type="text" id="username" class="input-box">
 
+<div id="message"></div>
+
 <label>PASSWORD:</label>
 <input type="password" id="password" class="input-box">
 
@@ -33,12 +35,18 @@ const users = {
 function login() {
     const username = document.getElementById("username").value;
     const password = document.getElementById("password").value;
+    const message = document.getElementById("message");
 
-    if(users[username] && users[username] === password){
-        alert("Login successful!");
-        // window.location.href = "dashboard.html";
+    if (users[username] && users[username] === password) {
+
+        if (username === "admin") {
+            message.textContent = "admin login successful";
+        } else {
+            message.textContent = "login successful";
+        }
+
     } else {
-        alert("Invalid login");
+        message.textContent = "invalid login";
     }
 }
 </script>
